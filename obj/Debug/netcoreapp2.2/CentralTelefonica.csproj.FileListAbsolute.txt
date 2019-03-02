@@ -1,0 +1,11 @@
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\bin\Debug\netcoreapp2.2\CentralTelefonica.deps.json
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\bin\Debug\netcoreapp2.2\CentralTelefonica.runtimeconfig.json
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\bin\Debug\netcoreapp2.2\CentralTelefonica.runtimeconfig.dev.json
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\bin\Debug\netcoreapp2.2\CentralTelefonica.dll
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\bin\Debug\netcoreapp2.2\CentralTelefonica.pdb
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\obj\Debug\netcoreapp2.2\CentralTelefonica.csprojAssemblyReference.cache
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\obj\Debug\netcoreapp2.2\CentralTelefonica.csproj.CoreCompileInputs.cache
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\obj\Debug\netcoreapp2.2\CentralTelefonica.AssemblyInfoInputs.cache
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\obj\Debug\netcoreapp2.2\CentralTelefonica.AssemblyInfo.cs
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\obj\Debug\netcoreapp2.2\CentralTelefonica.dll
+C:\Users\Dayana Cifuentes\Desktop\Sabados\Modulo1\CentralTelefonica\obj\Debug\netcoreapp2.2\CentralTelefonica.pdb
