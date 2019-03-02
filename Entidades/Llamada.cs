@@ -5,26 +5,33 @@ namespace CentralTelefonica.Entidades
         private string numeroOrigen;
         public string NumeroOrigen
         {
-            get { return numeroOrigen;}
-            set { numeroOrigen = value;}
+            get { return numeroOrigen; }
+            set { numeroOrigen = value; }
         }
 
         private string numeroDestino;
         public string NumeroDestino
         {
-            get { return numeroDestino;}
-            set { numeroDestino = value;}
+            get { return numeroDestino; }
+            set { numeroDestino = value; }
         }
-        
+
         private double duracion;
         public double Duracion
         {
-            get { return duracion;}
-            set { duracion = value;}
+            get { return duracion; }
+            set { duracion = value; }
         }
-        
+
+        public Llamada()
+        {
+
+        }
+        public Llamada(string numeroOrigen, string numeroDestino, double duracion) => (NumeroOrigen, NumeroDestino, Duracion) = (numeroOrigen, numeroDestino, duracion);
+
         public abstract double CalcularPrecio();
-        public override string ToString(){
+        public override string ToString()
+        {
             return $"Numero de Origen: {this.numeroOrigen} - Numero de Destino: {this.numeroDestino} - Duracion llamada: {this.duracion}";
         }
     }
