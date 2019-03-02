@@ -9,6 +9,8 @@ namespace CentralTelefonica.Entidades
             set { precio = value;}
         }
         
+        public LlamadaLocal(string numeroOrigen, string numeroDestino, double duracion) => (base.NumeroOrigen, base.NumeroDestino, base.Duracion) = (numeroOrigen, numeroDestino, duracion);
+
         public override double CalcularPrecio()
         {
             return this.Precio * this.Duracion;
