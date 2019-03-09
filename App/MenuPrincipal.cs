@@ -24,30 +24,41 @@ namespace CentralTelefonica.App
             int opcion = 0;
             do
             {
-                WriteLine("1. Registrar llamada local");
-                WriteLine("2. Registrar llamada departamental");
-                WriteLine("3. Costo total de las llamadas locales");
-                WriteLine("4. Costo total de las llamadas departamentales");
-                WriteLine("5. Costo total de las llamadas");
-                WriteLine("6. Mostrar detalle de llamadas");
-                WriteLine("0. Salir");
-                WriteLine("Ingrese su opción: ");
-                string valor = ReadLine();
-                opcion = Convert.ToInt32(valor);
-                if (opcion == 1)
+                try
                 {
-                    RegistrarLlamada(opcion);
+                    WriteLine("1. Registrar llamada local");
+                    WriteLine("2. Registrar llamada departamental");
+                    WriteLine("3. Costo total de las llamadas locales");
+                    WriteLine("4. Costo total de las llamadas departamentales");
+                    WriteLine("5. Costo total de las llamadas");
+                    WriteLine("6. Mostrar detalle de llamadas");
+                    WriteLine("0. Salir");
+                    WriteLine("Ingrese su opción: ");
+                    string valor = ReadLine();
+                    opcion = Convert.ToInt32(valor);
+                    if (opcion == 1)
+                    {
+                        RegistrarLlamada(opcion);
+                    }
+                    else if (opcion == 2)
+                    {
+                        RegistrarLlamada(opcion);
+                    }
+                    else if (opcion == 6)
+                    {
+                        MostrarDetalleForEach();
+                        ReadKey();
+                    }
                 }
-                else if (opcion == 2)
+                catch (Exception)
                 {
-                    RegistrarLlamada(opcion);
-                }
-                else if (opcion == 6)
-                {
-                    MostrarDetalleForEach();
+                    WriteLine("No puede ingresar una valor invalido, enter para continuar");
                     ReadKey();
+                    opcion = 100;
                 }
+
             } while (opcion != 0);
+
         }
         public void RegistrarLlamada(int opcion)
         {
@@ -117,7 +128,7 @@ namespace CentralTelefonica.App
         {
             foreach (var llamada in listaDeLlamadas)
             {
-                WriteLine(llamada);   
+                WriteLine(llamada);
             }
         }
     }
