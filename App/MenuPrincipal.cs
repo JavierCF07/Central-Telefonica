@@ -49,7 +49,7 @@ namespace CentralTelefonica.App
             duracion = Convert.ToDouble(valor1);
             if (opcion == 1)
             {
-                llamada = new LlamadaLocal();
+                llamada = new LlamadaLocal(numeroOrigen, numeroDestino, duracion);
                 llamada.NumeroDestino = numeroDestino;
                 llamada.NumeroOrigen = numeroOrigen;
                 llamada.Duracion = duracion;

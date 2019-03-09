@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dayana Cifuentes\\Desktop\\Sabados\\Modulo1\\CentralTelefonica\\CentralTelefonica.csproj",
+      "projectUniqueName": "c:\\Users\\Dayana Cifuentes\\Desktop\\Sabados\\Modulo1\\CentralTelefonica\\CentralTelefonica.csproj",
       "projectName": "CentralTelefonica",
-      "projectPath": "C:\\Users\\Dayana Cifuentes\\Desktop\\Sabados\\Modulo1\\CentralTelefonica\\CentralTelefonica.csproj",
+      "projectPath": "c:\\Users\\Dayana Cifuentes\\Desktop\\Sabados\\Modulo1\\CentralTelefonica\\CentralTelefonica.csproj",
       "packagesPath": "C:\\Users\\Dayana Cifuentes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dayana Cifuentes\\Desktop\\Sabados\\Modulo1\\CentralTelefonica\\obj\\",
+      "outputPath": "c:\\Users\\Dayana Cifuentes\\Desktop\\Sabados\\Modulo1\\CentralTelefonica\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
