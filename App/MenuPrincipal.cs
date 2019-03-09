@@ -2,6 +2,7 @@ using System;
 using static System.Console;
 using System.Collections.Generic;
 using CentralTelefonica.Entidades;
+using CentralTelefonica.Until;
 
 namespace CentralTelefonica.App
 {
@@ -21,7 +22,7 @@ namespace CentralTelefonica.App
         }
         public void mostrarMenu()
         {
-            int opcion = 0;
+            int opcion = 100;
             do
             {
                 try
@@ -52,9 +53,9 @@ namespace CentralTelefonica.App
                 }
                 catch (Exception)
                 {
-                    WriteLine("No puede ingresar una valor invalido, enter para continuar");
+                    WriteLine("No puede ingresar una letra, debe ingresar un numero");
                     ReadKey();
-                    opcion = 100;
+                    //throw new MenuException();
                 }
 
             } while (opcion != 0);
