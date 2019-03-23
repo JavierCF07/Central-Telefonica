@@ -27,6 +27,7 @@ namespace CentralTelefonica.App
             {
                 try
                 {
+                    Clear();
                     WriteLine("1. Registrar llamada local");
                     WriteLine("2. Registrar llamada departamental");
                     WriteLine("3. Costo total de las llamadas locales");
@@ -36,7 +37,11 @@ namespace CentralTelefonica.App
                     WriteLine("0. Salir");
                     WriteLine("Ingrese su opción: ");
                     string valor = ReadLine();
-                    opcion = Convert.ToInt32(valor);
+                    if (EsNumero(valor) == true)
+                    {
+                        opcion = Convert.ToInt16(valor);
+                    }
+
                     if (opcion == 1)
                     {
                         RegistrarLlamada(opcion);
@@ -45,9 +50,17 @@ namespace CentralTelefonica.App
                     {
                         RegistrarLlamada(opcion);
                     }
+                    else if (opcion == 3)
+                    {
+                        MostrarCostoLlamadaLocales();
+                    }
+                    else if (opcion == 4)
+                    {
+                        MostrarDetalleLlamadasDepto();
+                    }
                     else if (opcion == 6)
                     {
-                        MostrarDetalleForEach();
+                        MostrarDetalle();
                         ReadKey();
                     }
                 }
@@ -59,8 +72,22 @@ namespace CentralTelefonica.App
                 }
 
             } while (opcion != 0);
-
         }
+        public Boolean EsNumero(string valor)
+        {
+            Boolean resultado = false;
+            try
+            {
+                int numero = Convert.ToInt16(valor);
+                resultado = true;
+            }
+            catch (Exception)
+            {
+                throw new MenuException();
+            }
+            return resultado;
+        }
+
         public void RegistrarLlamada(int opcion)
         {
             string numeroOrigen = "";
@@ -77,21 +104,15 @@ namespace CentralTelefonica.App
             if (opcion == 1)
             {
                 llamada = new LlamadaLocal(numeroOrigen, numeroDestino, duracion);
-                llamada.NumeroDestino = numeroDestino;
-                llamada.NumeroOrigen = numeroOrigen;
-                llamada.Duracion = duracion;
                 ((LlamadaLocal)llamada).Precio = precioLocal;
             }
             else if (opcion == 2)
             {
-                llamada = new LlamadaDepartamental();
-                llamada.NumeroDestino = numeroDestino;
-                llamada.NumeroOrigen = numeroOrigen;
-                llamada.Duracion = duracion;
+                llamada = new LlamadaDepartamental(numeroOrigen, numeroDestino, duracion);
                 ((LlamadaDepartamental)llamada).PrecioUno = precioUnoDepartamental;
                 ((LlamadaDepartamental)llamada).PrecioDos = precioDosDepartamental;
                 ((LlamadaDepartamental)llamada).PrecioTres = precioTresDepartamental;
-                ((LlamadaDepartamental)llamada).Franja = 0;
+                ((LlamadaDepartamental)llamada).Franja = calcularFranja(DateTime.Now);
             }
             else
             {
@@ -100,7 +121,7 @@ namespace CentralTelefonica.App
             this.listaDeLlamadas.Add(llamada);
         }
         //While
-        public void MostrarDetalleWhile()
+        /* public void MostrarDetalleWhile()
         {
             int i = 0;
             while (i < this.listaDeLlamadas.Count)
@@ -131,6 +152,81 @@ namespace CentralTelefonica.App
             {
                 WriteLine(llamada);
             }
+        }*/
+        public void MostrarDetalle()
+        {
+            foreach (var llamada in listaDeLlamadas)
+            {
+                WriteLine(llamada);
+            }
+        }
+
+        public void MostrarCostoLlamadaLocales()
+        {
+            double tiempoLlamada = 0;
+            double costoTotal = 0.0;
+            foreach (var elemento in listaDeLlamadas)
+            {
+                if (elemento.GetType() == typeof(LlamadaLocal))
+                {
+                    tiempoLlamada += elemento.Duracion;
+                    costoTotal += elemento.calcularPrecio();
+                }
+            }
+            WriteLine($"Costo minuto: {precioLocal}");
+            WriteLine($"Tiempo total de llamadas: {tiempoLlamada}");
+            WriteLine($"Costo total: {costoTotal}");
+        }
+        public void MostrarDetalleLlamadasDepto()
+        {
+            double tiempoLlamadaFranjaUno = 0;
+            double tiempoLlamadaFranjaDos = 0;
+            double tiempoLlamadaFranjaTres = 0;
+            double costoTotalFranjaUno = 0;
+            double costoTotalFranjaDos = 0;
+            double costoTotalFranjaTres = 0;
+            foreach (var elemento in listaDeLlamadas)
+            {
+                if (elemento.GetType() == typeof(LlamadaDepartamental))
+                {
+                    switch (((LlamadaDepartamental)elemento).Franja)
+                    {
+                        case 0:
+                            tiempoLlamadaFranjaUno += elemento.Duracion;
+                            costoTotalFranjaUno += elemento.calcularPrecio();
+                            break;
+
+                        case 1:
+                            tiempoLlamadaFranjaDos += elemento.Duracion;
+                            costoTotalFranjaDos += elemento.calcularPrecio();
+                            break;
+
+                        case 2:
+                            tiempoLlamadaFranjaTres += elemento.Duracion;
+                            costoTotalFranjaTres += elemento.calcularPrecio();
+                            break;
+                    }
+                }
+            }
+            WriteLine("Franja: 1");
+            WriteLine($"Costo minuto: {precioUnoDepartamental}");
+            WriteLine($"Tiempo total de llamadas: {tiempoLlamadaFranjaUno}");
+            WriteLine($"costo total: {costoTotalFranjaUno}");
+
+            WriteLine("Franja: 2");
+            WriteLine($"Costo minuto: {precioDosDepartamental}");
+            WriteLine($"Tiempo total de llamadas: {tiempoLlamadaFranjaDos}");
+            WriteLine($"Costo total: {costoTotalFranjaDos}");
+
+            WriteLine("Franja: 3");
+            WriteLine($"Costo minuto: {precioTresDepartamental}");
+            WriteLine($"Tiempo total de llamadas: {tiempoLlamadaFranjaTres}");
+            WriteLine($"Costo total: {costoTotalFranjaTres}");
+        }
+        public int calcularFranja(DateTime fecha)
+        {
+            int resultado = -1;
+            return resultado;
         }
     }
 }
